@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nethmina Malshan</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-12 px-6 sm:px-12 mb-12">
+      <div class="container mx-auto flex items-center justify-between">
+        <div>
+          <h1 class="text-4xl font-bold mb-2">Nethmina Malshan</h1>
+          <p class="text-lg">Medical Student | Web Developer | Robotics Enthusiast</p>
+        </div>
+        <nav>
+          <ul class="flex space-x-6">
+            <li><a href="#about" class="hover:text-gray-300">About</a></li>
+            <li><a href="#skills" class="hover:text-gray-300">Skills</a></li>
+            <li><a href="#projects" class="hover:text-gray-300">Projects</a></li>
+            <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="container mx-auto py-12 px-6 sm:px-12">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+          <div>
+            <img src="https://via.placeholder.com/400x320" alt="Nethmina Malshan" class="w-full rounded-lg shadow-lg">
+          </div>
+          <div>
+            <p class="mb-6">{{ description }}</p>
+            <p class="mb-6">{{ background }}</p>
+            <p>{{ potential }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="bg-gray-100 py-12 px-6 sm:px-12">
+        <h2 class="text-3xl font-bold mb-6">My Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div v-for="skill in skills" :key="skill.title" class="bg-white p-6 rounded-lg shadow-md text-center">
+            <!-- Placeholder SVG Icon -->
+            <svg class="h-12 w-12 text-blue-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M10 8h4v8h-4z" fill="white" />
+            </svg>
+            <h3 class="text-lg font-medium">{{ skill.title }}</h3>
+            <p class="text-gray-600">{{ skill.description }}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="container mx-auto py-12 px-6 sm:px-12">
+        <h2 class="text-3xl font-bold mb-6">My Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div v-for="project in projects" :key="project.title" class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img :src="project.image" :alt="project.title" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
+              <p class="text-gray-600 mb-4">{{ project.description }}</p>
+              <a :href="project.url" target="_blank" class="text-blue-500 hover:text-blue-700">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-12 px-6 sm:px-12">
+        <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+        <form class="max-w-md mx-auto">
+          <div class="mb-4">
+            <label for="name" class="block font-medium mb-2">Name</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" required>
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block font-medium mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" required>
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block font-medium mb-2">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" required></textarea>
+          </div>
+          <button type="submit" class="bg-white text-blue-500 hover:bg-gray-200 font-medium py-2 px-4 rounded-lg">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6 px-6 sm:px-12">
+      <div class="container mx-auto flex justify-between items-center">
+        <p>&copy; 2023 Nethmina Malshan. All rights reserved.</p>
+        <div class="flex space-x-4">
+          <!-- Social Media Icons as SVGs -->
+          <a href="#" class="hover:text-gray-300"> <!-- Instagram -->
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </a>
+          <a href="#" class="hover:text-gray-300"> <!-- Twitter -->
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </a>
+          <a href="#" class="hover:text-gray-300"> <!-- GitHub -->
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        description: 'Nethmina Malshan, born on July 2, 2005, is a highly motivated and multifaceted individual with a robust background in both medicine and technology.',
+        background: 'Currently pursuing a career in medicine, Nethmina demonstrates a profound commitment to improving human health and well-being. Beyond the medical realm, Nethmina\'s accomplishments in technology highlight a strong command of multiple programming languages and tools.',
+        potential: 'The ability to navigate both medical studies and technical projects reveals a balance of analytical and creative skills. Nethmina stands poised to contribute meaningfully to both healthcare and technology, setting a promising path for the future.',
+        skills: [
+          { title: 'Medicine', description: 'Dedicated to improving human health and well-being' },
+          { title: 'Programming', description: 'Proficient in various programming languages and tools' },
+          { title: 'Robotics', description: 'Skilled in integrating mechanical engineering and software development' },
+          { title: 'Web Development', description: 'Crafts responsive and user-friendly websites' }
+        ],
+        projects: [
+          {
+            title: 'Medical Technology Project',
+            description: 'Developed an innovative medical device to improve patient care',
+            image: 'https://via.placeholder.com/400x320',
+            url: '#'
+          },
+          {
+            title: 'Robotics Competition Winner',
+            description: 'Designed and built a winning robot for a national competition',
+            image: 'https://via.placeholder.com/400x320',
+            url: '#'
+          },
+          {
+            title: 'Personal Website',
+            description: 'Created a modern and responsive personal brand website',
+            image: 'https://via.placeholder.com/400x320',
+            url: '#'
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
